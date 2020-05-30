@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F70E391E2482E7B9000B9F29 /* ZenApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = F70E391C2482E7B9000B9F29 /* ZenApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F70E39282482E9A8000B9F29 /* GroupedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E39272482E9A8000B9F29 /* GroupedListViewModel.swift */; };
+		F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E392C2482EA96000B9F29 /* Collection+SafeSubscript.swift */; };
+		F70E39322482EB77000B9F29 /* GroupedListSectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E39312482EB77000B9F29 /* GroupedListSectionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F70E39192482E7B9000B9F29 /* ZenApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70E391C2482E7B9000B9F29 /* ZenApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZenApplication.h; sourceTree = "<group>"; };
 		F70E391D2482E7B9000B9F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70E39272482E9A8000B9F29 /* GroupedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListViewModel.swift; sourceTree = "<group>"; };
+		F70E392C2482EA96000B9F29 /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
+		F70E39312482EB77000B9F29 /* GroupedListSectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListSectionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,8 @@
 		F70E391B2482E7B9000B9F29 /* ZenApplication */ = {
 			isa = PBXGroup;
 			children = (
+				F70E39292482E9B5000B9F29 /* SourceCode */,
+				F70E392E2482EA9B000B9F29 /* Extensions */,
 				F70E39242482E83B000B9F29 /* SupportingFiles */,
 			);
 			path = ZenApplication;
@@ -58,6 +66,55 @@
 				F70E391D2482E7B9000B9F29 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F70E39292482E9B5000B9F29 /* SourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				F70E392B2482E9BF000B9F29 /* ViewModels */,
+			);
+			path = SourceCode;
+			sourceTree = "<group>";
+		};
+		F70E392B2482E9BF000B9F29 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F70E39332482EB87000B9F29 /* GroupedList */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F70E392E2482EA9B000B9F29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F70E392F2482EB48000B9F29 /* Swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F70E392F2482EB48000B9F29 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				F70E39302482EB5A000B9F29 /* Collection */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		F70E39302482EB5A000B9F29 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				F70E392C2482EA96000B9F29 /* Collection+SafeSubscript.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		F70E39332482EB87000B9F29 /* GroupedList */ = {
+			isa = PBXGroup;
+			children = (
+				F70E39312482EB77000B9F29 /* GroupedListSectionProtocol.swift */,
+				F70E39272482E9A8000B9F29 /* GroupedListViewModel.swift */,
+			);
+			path = GroupedList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +160,7 @@
 				TargetAttributes = {
 					F70E39182482E7B9000B9F29 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -139,6 +197,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70E39322482EB77000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
+				F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F70E39282482E9A8000B9F29 /* GroupedListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +329,7 @@
 		F70E39222482E7B9000B9F29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7CK9FQY54K;
@@ -284,6 +346,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ZenApplication-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,6 +355,7 @@
 		F70E39232482E7B9000B9F29 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7CK9FQY54K;
