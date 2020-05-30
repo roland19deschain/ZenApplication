@@ -79,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				F70E39292482E9B5000B9F29 /* SourceCode */,
-				F70E392E2482EA9B000B9F29 /* Extensions */,
 				F70E39242482E83B000B9F29 /* SupportingFiles */,
 			);
 			path = ZenApplication;
@@ -98,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F70E392B2482E9BF000B9F29 /* ViewModels */,
+				F70E392E2482EA9B000B9F29 /* Extensions */,
 			);
 			path = SourceCode;
 			sourceTree = "<group>";
