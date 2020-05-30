@@ -19,6 +19,9 @@
 		F70E39532482EE31000B9F29 /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E392C2482EA96000B9F29 /* Collection+SafeSubscript.swift */; };
 		F70E39542482EE81000B9F29 /* ZenApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = F70E391C2482E7B9000B9F29 /* ZenApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F70E39552482EE84000B9F29 /* ZenApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = F70E391C2482E7B9000B9F29 /* ZenApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F70E3957248303CB000B9F29 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E3956248303CB000B9F29 /* ListViewModel.swift */; };
+		F70E3958248303CB000B9F29 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E3956248303CB000B9F29 /* ListViewModel.swift */; };
+		F70E3959248303CB000B9F29 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E3956248303CB000B9F29 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,7 @@
 		F70E39312482EB77000B9F29 /* GroupedListSectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListSectionProtocol.swift; sourceTree = "<group>"; };
 		F70E39392482ED78000B9F29 /* ZenApplication_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70E39462482EDEF000B9F29 /* ZenApplication_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F70E3956248303CB000B9F29 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				F70E39332482EB87000B9F29 /* GroupedList */,
+				F70E395A24830487000B9F29 /* List */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -141,6 +146,14 @@
 				F70E39272482E9A8000B9F29 /* GroupedListViewModel.swift */,
 			);
 			path = GroupedList;
+			sourceTree = "<group>";
+		};
+		F70E395A24830487000B9F29 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				F70E3956248303CB000B9F29 /* ListViewModel.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +312,7 @@
 			files = (
 				F70E39322482EB77000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F70E3957248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39282482E9A8000B9F29 /* GroupedListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +323,7 @@
 			files = (
 				F70E394E2482EE2B000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E39522482EE31000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F70E3959248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39502482EE2E000B9F29 /* GroupedListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +334,7 @@
 			files = (
 				F70E394F2482EE2C000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E39532482EE31000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F70E3958248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39512482EE2E000B9F29 /* GroupedListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
