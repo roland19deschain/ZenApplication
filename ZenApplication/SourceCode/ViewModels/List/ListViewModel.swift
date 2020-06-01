@@ -26,6 +26,20 @@ public struct ListViewModel<RowModel> {
 	
 }
 
+// MARK: - Introspection
+
+public extension ListViewModel {
+	
+	func firstIndex(where predicate: (RowModel) -> Bool) -> Int? {
+		rows.firstIndex(where: predicate)
+	}
+	
+	func first(where predicate: (RowModel) -> Bool) -> RowModel? {
+		rows.first(where: predicate)
+	}
+	
+}
+
 // MARK: - Convenience
 
 public extension ListViewModel {
