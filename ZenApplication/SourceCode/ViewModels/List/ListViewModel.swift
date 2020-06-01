@@ -25,3 +25,13 @@ public struct ListViewModel<RowModel> {
 	}
 	
 }
+
+// MARK: - Convenience
+
+public extension ListViewModel {
+	
+	static var empty: Self {
+		ListViewModel(rows: [])
+	}
+	
+}
