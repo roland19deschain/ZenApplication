@@ -3,7 +3,9 @@ import UIKit
 public struct GroupedListViewModel<
 	RowModel,
 	SectionModel: GroupedListSectionProtocol
-> where SectionModel.RowModel == RowModel {
+	> where SectionModel.RowModel == RowModel,
+	RowModel: Equatable,
+SectionModel: Equatable {
 	
 	// MARK: - Subscriptions
 	
@@ -36,6 +38,48 @@ public struct GroupedListViewModel<
 	
 	public init(sections: [SectionModel]) {
 		self.sections = sections
+	}
+	
+}
+
+// MARK: - Introspection
+
+public extension GroupedListViewModel {
+	
+	func index(
+		of sectionModel: SectionModel
+	) -> Int? {
+		sections.firstIndex(of: sectionModel)
+	}
+	
+	func index(
+		where predicate: (SectionModel) -> Bool
+	) -> Int? {
+		sections.firstIndex(where: predicate)
+	}
+	
+	func indexPath(
+		of rowModel: RowModel
+	) -> IndexPath? {
+		sections.lazy.compactMap { sectionModel -> IndexPath? in
+			guard let rowIndex = sectionModel.rows.firstIndex(of: rowModel),
+				let sectionIndex = self.index(of: sectionModel) else {
+					return nil
+			}
+			return IndexPath(row: rowIndex, section: sectionIndex)
+		}.first
+	}
+	
+	func indexPath(
+		where predicate: @escaping (RowModel) -> Bool
+	) -> IndexPath? {
+		sections.lazy.compactMap { sectionModel -> IndexPath? in
+			guard let rowIndex = sectionModel.rows.firstIndex(where: predicate),
+				let sectionIndex = self.index(of: sectionModel) else {
+					return nil
+			}
+			return IndexPath(row: rowIndex, section: sectionIndex)
+		}.first
 	}
 	
 }
