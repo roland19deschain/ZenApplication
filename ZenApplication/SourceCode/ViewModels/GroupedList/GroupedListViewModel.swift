@@ -3,9 +3,7 @@ import UIKit
 public struct GroupedListViewModel<
 	RowModel,
 	SectionModel: GroupedListSectionProtocol
-	> where SectionModel.RowModel == RowModel,
-	RowModel: Equatable,
-SectionModel: Equatable {
+	> where SectionModel.RowModel == RowModel {
 	
 	// MARK: - Subscriptions
 	
@@ -44,7 +42,7 @@ SectionModel: Equatable {
 
 // MARK: - Introspection
 
-public extension GroupedListViewModel {
+public extension GroupedListViewModel where RowModel: Equatable, SectionModel: Equatable {
 	
 	func index(
 		of sectionModel: SectionModel
