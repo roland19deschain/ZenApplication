@@ -5,6 +5,7 @@ public struct Dispatcher {
 	// MARK: - Stored Properties
 	
 	private static var onceTokens: [String] = []
+	private static let dispatchSemaphore = DispatchSemaphore(value: 1)
 	
 	// MARK: - Dispatch
 	
@@ -18,10 +19,10 @@ public struct Dispatcher {
 		token: String,
 		block: () -> Void
 	) {
-		objc_sync_enter(self)
+		dispatchSemaphore.wait()
 		
 		defer {
-			objc_sync_exit(self)
+			dispatchSemaphore.signal()
 		}
 		
 		guard !onceTokens.contains(token) else {
