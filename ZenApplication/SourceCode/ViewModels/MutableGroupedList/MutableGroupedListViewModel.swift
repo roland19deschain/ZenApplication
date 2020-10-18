@@ -105,6 +105,25 @@ public extension MutableGroupedListViewModel {
 		)
 	}
 	
+	mutating func insert(
+		_ section: SectionModel,
+		at index: Int
+	) {
+		sections.insert(section, at: index)
+	}
+	
+	mutating func append(_ section: SectionModel) {
+		sections.append(section)
+	}
+	
+	mutating func remove(_ section: SectionModel) {
+		sections.remove(section)
+	}
+	
+	mutating func remove(_ sections: [SectionModel]) {
+		self.sections.remove(sections)
+	}
+	
 }
 
 // MARK: - Convenience
