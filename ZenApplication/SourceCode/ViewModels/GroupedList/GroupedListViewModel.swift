@@ -40,13 +40,9 @@ public struct GroupedListViewModel<
 	
 }
 
-// MARK: - Equatable
-
-extension GroupedListViewModel: Equatable {}
-
 // MARK: - Introspection
 
-public extension GroupedListViewModel where RowModel: Equatable {
+public extension GroupedListViewModel where RowModel: Equatable, SectionModel: Equatable {
 	
 	func index(
 		of sectionModel: SectionModel

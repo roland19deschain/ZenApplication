@@ -2,7 +2,7 @@ import UIKit
 
 public struct MutableGroupedListViewModel<
 	RowModel: Equatable,
-	SectionModel: GroupedListSectionProtocol
+	SectionModel: MutableGroupedListSectionProtocol
 	> where SectionModel.RowModel == RowModel {
 	
 	// MARK: - Subscriptions
@@ -94,13 +94,15 @@ public extension MutableGroupedListViewModel {
 		rowModel: RowModel,
 		with newRowModel: RowModel
 	) {
-		guard let indexPath = indexPath(of: rowModel) else {
+		guard let sectionModel = sections.first(where: {
+			$0.rows.contains(rowModel)
+		}) else {
 			return
 		}
-		var sectionRows = sections[indexPath.section].rows
-		sectionRows[indexPath.row] = newRowModel
-		
-		sections[indexPath.section] = SectionModel(rows: sectionRows)
+		sectionModel.replace(
+			rowModel: rowModel,
+			with: newRowModel
+		)
 	}
 	
 }

@@ -1,11 +1,9 @@
 import Foundation
 
-public protocol GroupedListSectionProtocol: Equatable {
+public protocol GroupedListSectionProtocol {
 	
 	associatedtype RowModel
 	
 	var rows: [RowModel] { get }
-	
-	init(rows: [RowModel])
 	
 }
