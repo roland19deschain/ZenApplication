@@ -1,7 +1,7 @@
 import UIKit
 
-public struct GroupedListViewModel<
-	RowModel,
+public struct MutableGroupedListViewModel<
+	RowModel: Equatable,
 	SectionModel: GroupedListSectionProtocol
 	> where SectionModel.RowModel == RowModel {
 	
@@ -42,11 +42,11 @@ public struct GroupedListViewModel<
 
 // MARK: - Equatable
 
-extension GroupedListViewModel: Equatable {}
+extension MutableGroupedListViewModel: Equatable {}
 
 // MARK: - Introspection
 
-public extension GroupedListViewModel where RowModel: Equatable {
+public extension MutableGroupedListViewModel {
 	
 	func index(
 		of sectionModel: SectionModel
@@ -86,12 +86,31 @@ public extension GroupedListViewModel where RowModel: Equatable {
 	
 }
 
+// MARK: - Mutating
+
+public extension MutableGroupedListViewModel {
+	
+	mutating func replace(
+		rowModel: RowModel,
+		with newRowModel: RowModel
+	) {
+		guard let indexPath = indexPath(of: rowModel) else {
+			return
+		}
+		var sectionRows = sections[indexPath.section].rows
+		sectionRows[indexPath.row] = newRowModel
+		
+		sections[indexPath.section] = SectionModel(rows: sectionRows)
+	}
+	
+}
+
 // MARK: - Convenience
 
-public extension GroupedListViewModel {
+public extension MutableGroupedListViewModel {
 	
 	static var empty: Self {
-		GroupedListViewModel(sections: [])
+		MutableGroupedListViewModel(sections: [])
 	}
 	
 }

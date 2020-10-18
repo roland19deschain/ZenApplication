@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7014DDF253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7014DDE253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift */; };
+		F7014DE0253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7014DDE253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift */; };
+		F7014DE1253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7014DDE253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift */; };
 		F70E391E2482E7B9000B9F29 /* ZenApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = F70E391C2482E7B9000B9F29 /* ZenApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F70E39282482E9A8000B9F29 /* GroupedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E39272482E9A8000B9F29 /* GroupedListViewModel.swift */; };
 		F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E392C2482EA96000B9F29 /* Collection+SafeSubscript.swift */; };
@@ -28,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7014DDE253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableGroupedListViewModel.swift; sourceTree = "<group>"; };
 		F70E39192482E7B9000B9F29 /* ZenApplication_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70E391C2482E7B9000B9F29 /* ZenApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZenApplication.h; sourceTree = "<group>"; };
 		F70E391D2482E7B9000B9F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			children = (
 				F70E39312482EB77000B9F29 /* GroupedListSectionProtocol.swift */,
 				F70E39272482E9A8000B9F29 /* GroupedListViewModel.swift */,
+				F7014DDE253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift */,
 			);
 			path = GroupedList;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			files = (
 				F70E39322482EB77000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F7014DDF253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift in Sources */,
 				F70E3957248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39282482E9A8000B9F29 /* GroupedListViewModel.swift in Sources */,
 				F758399A2517C50A0087D1EE /* Dispatcher.swift in Sources */,
@@ -337,6 +343,7 @@
 			files = (
 				F70E394E2482EE2B000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E39522482EE31000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F7014DE1253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift in Sources */,
 				F70E3959248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39502482EE2E000B9F29 /* GroupedListViewModel.swift in Sources */,
 				F758399C2517C50A0087D1EE /* Dispatcher.swift in Sources */,
@@ -349,6 +356,7 @@
 			files = (
 				F70E394F2482EE2C000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E39532482EE31000B9F29 /* Collection+SafeSubscript.swift in Sources */,
+				F7014DE0253C9E7E00E8AEDD /* MutableGroupedListViewModel.swift in Sources */,
 				F70E3958248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39512482EE2E000B9F29 /* GroupedListViewModel.swift in Sources */,
 				F758399B2517C50A0087D1EE /* Dispatcher.swift in Sources */,
