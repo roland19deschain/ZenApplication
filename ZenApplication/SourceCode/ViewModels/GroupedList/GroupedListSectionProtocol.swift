@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol GroupedListSectionProtocol {
+public protocol GroupedListSectionProtocol: Equatable where RowModel: Equatable {
 	
 	associatedtype RowModel
 	
