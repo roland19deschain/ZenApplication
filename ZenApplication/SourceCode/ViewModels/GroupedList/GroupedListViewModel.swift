@@ -30,7 +30,7 @@ public struct GroupedListViewModel<
 	
 	// MARK: - Stored Properties
 	
-	private let sections: [SectionModel]
+	public let sections: [SectionModel]
 	
 	// MARK: - Life Cycle
 	
