@@ -16,7 +16,7 @@ public struct ListViewModel<RowModel> {
 	
 	// MARK: - Stored Properties
 	
-	private let rows: [RowModel]
+	public let rows: [RowModel]
 	
 	// MARK: - Life Cycle
 	
@@ -25,6 +25,10 @@ public struct ListViewModel<RowModel> {
 	}
 	
 }
+
+// MARK: - Equatable
+
+extension ListViewModel: Equatable where RowModel: Equatable {}
 
 // MARK: - Introspection
 

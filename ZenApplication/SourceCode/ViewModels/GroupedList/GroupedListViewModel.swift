@@ -1,9 +1,8 @@
 import UIKit
 
 public struct GroupedListViewModel<
-	RowModel,
 	SectionModel: GroupedListSectionProtocol
->: Equatable where SectionModel.RowModel == RowModel {
+>: Equatable {
 	
 	// MARK: - Subscriptions
 	
@@ -11,9 +10,8 @@ public struct GroupedListViewModel<
 		sections[safe: index]
 	}
 	
-	public subscript(indexPath: IndexPath) -> RowModel? {
-		sections[safe: indexPath.section]?
-			.rows[safe: indexPath.row]
+	public subscript(indexPath: IndexPath) -> SectionModel.RowModel? {
+		sections[safe: indexPath.section]?.rows[safe: indexPath.row]
 	}
 	
 	// MARK: - Computed Properties
@@ -42,7 +40,9 @@ public struct GroupedListViewModel<
 
 // MARK: - Introspection
 
-public extension GroupedListViewModel where RowModel: Equatable, SectionModel: Equatable {
+public extension GroupedListViewModel where
+	SectionModel: Equatable,
+	SectionModel.RowModel: Equatable {
 	
 	func index(
 		of sectionModel: SectionModel
@@ -57,7 +57,7 @@ public extension GroupedListViewModel where RowModel: Equatable, SectionModel: E
 	}
 	
 	func indexPath(
-		of rowModel: RowModel
+		of rowModel: SectionModel.RowModel
 	) -> IndexPath? {
 		sections.lazy.compactMap { sectionModel -> IndexPath? in
 			guard
@@ -66,12 +66,15 @@ public extension GroupedListViewModel where RowModel: Equatable, SectionModel: E
 			else {
 				return nil
 			}
-			return IndexPath(row: rowIndex, section: sectionIndex)
+			return IndexPath(
+				row: rowIndex,
+				section: sectionIndex
+			)
 		}.first
 	}
 	
 	func indexPath(
-		where predicate: @escaping (RowModel) -> Bool
+		where predicate: @escaping (SectionModel.RowModel) -> Bool
 	) -> IndexPath? {
 		sections.lazy.compactMap { sectionModel -> IndexPath? in
 			guard
