@@ -25,6 +25,7 @@
 		F758399A2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
 		F758399B2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
 		F758399C2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
+		F78CE6042560892E00504898 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6032560892E00504898 /* RouterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F70E39462482EDEF000B9F29 /* ZenApplication_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70E3956248303CB000B9F29 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F75839992517C50A0087D1EE /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		F78CE6032560892E00504898 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +106,9 @@
 		F70E39292482E9B5000B9F29 /* SourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				F75839A32517C50F0087D1EE /* Concurrency */,
+				F78CE60A2560895500504898 /* ModuleArchitecture */,
 				F70E392B2482E9BF000B9F29 /* ViewModels */,
+				F75839A32517C50F0087D1EE /* Concurrency */,
 				F70E392E2482EA9B000B9F29 /* Extensions */,
 			);
 			path = SourceCode;
@@ -167,6 +170,22 @@
 				F75839992517C50A0087D1EE /* Dispatcher.swift */,
 			);
 			path = Concurrency;
+			sourceTree = "<group>";
+		};
+		F78CE60A2560895500504898 /* ModuleArchitecture */ = {
+			isa = PBXGroup;
+			children = (
+				F78CE60E2560896E00504898 /* Router */,
+			);
+			path = ModuleArchitecture;
+			sourceTree = "<group>";
+		};
+		F78CE60E2560896E00504898 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F78CE6032560892E00504898 /* RouterProtocol.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78CE6042560892E00504898 /* RouterProtocol.swift in Sources */,
 				F70E39322482EB77000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */,
 				F70E3957248303CB000B9F29 /* ListViewModel.swift in Sources */,
