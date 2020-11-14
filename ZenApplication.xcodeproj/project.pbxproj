@@ -26,8 +26,23 @@
 		F758399B2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
 		F758399C2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
 		F78CE6042560892E00504898 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6032560892E00504898 /* RouterProtocol.swift */; };
-		F7A7072725608D0C00A268F7 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A7072625608D0C00A268F7 /* SafariServices.framework */; };
+		F7A7072B25608DB100A268F7 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A7072625608D0C00A268F7 /* SafariServices.framework */; };
+		F7A7072C25608DB100A268F7 /* SafariServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7A7072625608D0C00A268F7 /* SafariServices.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7A7072D25608DB100A268F7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F7A7072C25608DB100A268F7 /* SafariServices.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F70E39192482E7B9000B9F29 /* ZenApplication_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A7072725608D0C00A268F7 /* SafariServices.framework in Frameworks */,
+				F7A7072B25608DB100A268F7 /* SafariServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +253,7 @@
 				F70E39152482E7B9000B9F29 /* Sources */,
 				F70E39162482E7B9000B9F29 /* Frameworks */,
 				F70E39172482E7B9000B9F29 /* Resources */,
+				F7A7072D25608DB100A268F7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
