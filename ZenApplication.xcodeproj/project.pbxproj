@@ -25,24 +25,7 @@
 		F758399A2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
 		F758399B2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
 		F758399C2517C50A0087D1EE /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75839992517C50A0087D1EE /* Dispatcher.swift */; };
-		F78CE6042560892E00504898 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CE6032560892E00504898 /* RouterProtocol.swift */; };
-		F7A7072B25608DB100A268F7 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A7072625608D0C00A268F7 /* SafariServices.framework */; };
-		F7A7072C25608DB100A268F7 /* SafariServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F7A7072625608D0C00A268F7 /* SafariServices.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F7A7072D25608DB100A268F7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F7A7072C25608DB100A268F7 /* SafariServices.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F70E39192482E7B9000B9F29 /* ZenApplication_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +38,6 @@
 		F70E39462482EDEF000B9F29 /* ZenApplication_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70E3956248303CB000B9F29 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F75839992517C50A0087D1EE /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
-		F78CE6032560892E00504898 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		F7A7072625608D0C00A268F7 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/iOSSupport/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -64,7 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A7072B25608DB100A268F7 /* SafariServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +106,6 @@
 		F70E39292482E9B5000B9F29 /* SourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				F78CE60A2560895500504898 /* ModuleArchitecture */,
 				F70E392B2482E9BF000B9F29 /* ViewModels */,
 				F75839A32517C50F0087D1EE /* Concurrency */,
 				F70E392E2482EA9B000B9F29 /* Extensions */,
@@ -191,22 +171,6 @@
 			path = Concurrency;
 			sourceTree = "<group>";
 		};
-		F78CE60A2560895500504898 /* ModuleArchitecture */ = {
-			isa = PBXGroup;
-			children = (
-				F78CE60E2560896E00504898 /* Router */,
-			);
-			path = ModuleArchitecture;
-			sourceTree = "<group>";
-		};
-		F78CE60E2560896E00504898 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				F78CE6032560892E00504898 /* RouterProtocol.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		F7A7072525608D0C00A268F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +217,6 @@
 				F70E39152482E7B9000B9F29 /* Sources */,
 				F70E39162482E7B9000B9F29 /* Frameworks */,
 				F70E39172482E7B9000B9F29 /* Resources */,
-				F7A7072D25608DB100A268F7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78CE6042560892E00504898 /* RouterProtocol.swift in Sources */,
 				F70E39322482EB77000B9F29 /* GroupedListSectionProtocol.swift in Sources */,
 				F70E392D2482EA96000B9F29 /* Collection+SafeSubscript.swift in Sources */,
 				F70E3957248303CB000B9F29 /* ListViewModel.swift in Sources */,
