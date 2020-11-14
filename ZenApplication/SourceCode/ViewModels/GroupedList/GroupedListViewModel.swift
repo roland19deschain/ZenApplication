@@ -21,9 +21,9 @@ public struct GroupedListViewModel<
 	}
 	
 	public var rowsCount: Int {
-		sections.map {
-			$0.rows.count
-		}.reduce(0, +)
+		sections.reduce(0) {
+			$0 + $1.rows.count
+		}
 	}
 	
 	// MARK: - Stored Properties
@@ -59,32 +59,35 @@ public extension GroupedListViewModel where
 	func indexPath(
 		of rowModel: SectionModel.RowModel
 	) -> IndexPath? {
-		sections.lazy.compactMap { sectionModel -> IndexPath? in
+		for sectionIndex in 0..<sections.count {
 			guard
-				let rowIndex = sectionModel.rows.firstIndex(of: rowModel),
-				let sectionIndex = self.index(of: sectionModel)
+				let rowIndex = sections[sectionIndex].rows.firstIndex(of: rowModel)
 			else {
-				return nil
+				continue
 			}
 			return IndexPath(
 				row: rowIndex,
 				section: sectionIndex
 			)
-		}.first
+		}
+		return nil
 	}
 	
 	func indexPath(
 		where predicate: @escaping (SectionModel.RowModel) -> Bool
 	) -> IndexPath? {
-		sections.lazy.compactMap { sectionModel -> IndexPath? in
+		for sectionIndex in 0..<sections.count {
 			guard
-				let rowIndex = sectionModel.rows.firstIndex(where: predicate),
-				let sectionIndex = self.index(of: sectionModel)
+				let rowIndex = sections[sectionIndex].rows.firstIndex(where: predicate)
 			else {
-				return nil
+				continue
 			}
-			return IndexPath(row: rowIndex, section: sectionIndex)
-		}.first
+			return IndexPath(
+				row: rowIndex,
+				section: sectionIndex
+			)
+		}
+		return nil
 	}
 	
 }

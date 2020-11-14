@@ -34,11 +34,15 @@ extension ListViewModel: Equatable where RowModel: Equatable {}
 
 public extension ListViewModel {
 	
-	func firstIndex(where predicate: (RowModel) -> Bool) -> Int? {
+	func firstIndex(
+		where predicate: (RowModel) -> Bool
+	) -> Int? {
 		rows.firstIndex(where: predicate)
 	}
 	
-	func first(where predicate: (RowModel) -> Bool) -> RowModel? {
+	func first(
+		where predicate: (RowModel) -> Bool
+	) -> RowModel? {
 		rows.first(where: predicate)
 	}
 	
