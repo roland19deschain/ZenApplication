@@ -28,12 +28,19 @@ public struct GroupedListViewModel<
 	
 	// MARK: - Stored Properties
 	
-	public let sections: [SectionModel]
+	private let sections: [SectionModel]
 	
 	// MARK: - Life Cycle
 	
 	public init(sections: [SectionModel]) {
 		self.sections = sections
+	}
+	
+	public init(
+		primaryModel: Self,mapper
+		builder: ([SectionModel]) -> [SectionModel]
+	) {
+		self.sections = builder(primaryModel.sections)
 	}
 	
 }

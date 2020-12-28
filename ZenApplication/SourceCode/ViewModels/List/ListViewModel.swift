@@ -16,7 +16,7 @@ public struct ListViewModel<ItemModel> {
 	
 	// MARK: - Stored Properties
 	
-	public let items: [ItemModel]
+	private let items: [ItemModel]
 	
 	// MARK: - Life Cycle
 	
