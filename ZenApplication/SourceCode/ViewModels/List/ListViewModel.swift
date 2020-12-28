@@ -1,49 +1,49 @@
 import Foundation
 
-public struct ListViewModel<RowModel> {
+public struct ListViewModel<ItemModel> {
 	
 	// MARK: - Subscriptions
 	
-	public subscript(index: Int) -> RowModel? {
-		rows[safe: index]
+	public subscript(index: Int) -> ItemModel? {
+		items[safe: index]
 	}
 	
 	// MARK: - Computed Properties
 	
 	public var count: Int {
-		rows.count
+		items.count
 	}
 	
 	// MARK: - Stored Properties
 	
-	public let rows: [RowModel]
+	public let items: [ItemModel]
 	
 	// MARK: - Life Cycle
 	
-	public init(rows: [RowModel]) {
-		self.rows = rows
+	public init(items: [ItemModel]) {
+		self.items = items
 	}
 	
 }
 
 // MARK: - Equatable
 
-extension ListViewModel: Equatable where RowModel: Equatable {}
+extension ListViewModel: Equatable where ItemModel: Equatable {}
 
 // MARK: - Introspection
 
 public extension ListViewModel {
 	
 	func firstIndex(
-		where predicate: (RowModel) -> Bool
+		where predicate: (ItemModel) -> Bool
 	) -> Int? {
-		rows.firstIndex(where: predicate)
+		items.firstIndex(where: predicate)
 	}
 	
 	func first(
-		where predicate: (RowModel) -> Bool
-	) -> RowModel? {
-		rows.first(where: predicate)
+		where predicate: (ItemModel) -> Bool
+	) -> ItemModel? {
+		items.first(where: predicate)
 	}
 	
 }
@@ -53,7 +53,7 @@ public extension ListViewModel {
 public extension ListViewModel {
 	
 	static var empty: Self {
-		ListViewModel(rows: [])
+		ListViewModel(items: [])
 	}
 	
 }

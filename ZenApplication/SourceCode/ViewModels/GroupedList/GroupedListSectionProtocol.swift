@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol GroupedListSectionProtocol: Equatable where RowModel: Equatable {
-	associatedtype RowModel
-	var rows: [RowModel] { get }
+public protocol GroupedListSectionProtocol: Equatable where ItemModel: Equatable {
+	associatedtype ItemModel
+	var items: [ItemModel] { get }
 }

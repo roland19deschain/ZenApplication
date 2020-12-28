@@ -10,8 +10,8 @@ public struct GroupedListViewModel<
 		sections[safe: index]
 	}
 	
-	public subscript(indexPath: IndexPath) -> SectionModel.RowModel? {
-		sections[safe: indexPath.section]?.rows[safe: indexPath.row]
+	public subscript(indexPath: IndexPath) -> SectionModel.ItemModel? {
+		sections[safe: indexPath.section]?.items[safe: indexPath.item]
 	}
 	
 	// MARK: - Computed Properties
@@ -20,9 +20,9 @@ public struct GroupedListViewModel<
 		sections.count
 	}
 	
-	public var rowsCount: Int {
+	public var itemsCount: Int {
 		sections.reduce(0) {
-			$0 + $1.rows.count
+			$0 + $1.items.count
 		}
 	}
 	
@@ -42,7 +42,7 @@ public struct GroupedListViewModel<
 
 public extension GroupedListViewModel where
 	SectionModel: Equatable,
-	SectionModel.RowModel: Equatable {
+	SectionModel.ItemModel: Equatable {
 	
 	func index(
 		of sectionModel: SectionModel
@@ -57,16 +57,16 @@ public extension GroupedListViewModel where
 	}
 	
 	func indexPath(
-		of rowModel: SectionModel.RowModel
+		of itemModel: SectionModel.ItemModel
 	) -> IndexPath? {
 		for sectionIndex in 0..<sections.count {
 			guard
-				let rowIndex = sections[sectionIndex].rows.firstIndex(of: rowModel)
+				let itemIndex = sections[sectionIndex].items.firstIndex(of: itemModel)
 			else {
 				continue
 			}
 			return IndexPath(
-				row: rowIndex,
+				item: itemIndex,
 				section: sectionIndex
 			)
 		}
@@ -74,16 +74,16 @@ public extension GroupedListViewModel where
 	}
 	
 	func indexPath(
-		where predicate: @escaping (SectionModel.RowModel) -> Bool
+		where predicate: @escaping (SectionModel.ItemModel) -> Bool
 	) -> IndexPath? {
 		for sectionIndex in 0..<sections.count {
 			guard
-				let rowIndex = sections[sectionIndex].rows.firstIndex(where: predicate)
+				let itemIndex = sections[sectionIndex].items.firstIndex(where: predicate)
 			else {
 				continue
 			}
 			return IndexPath(
-				row: rowIndex,
+				item: itemIndex,
 				section: sectionIndex
 			)
 		}
