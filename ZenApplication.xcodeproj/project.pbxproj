@@ -38,6 +38,7 @@
 		F70E39462482EDEF000B9F29 /* ZenApplication_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenApplication_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70E3956248303CB000B9F29 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F75839992517C50A0087D1EE /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		F7A3089A26D1C4EB0069855F /* ZenSpriteKit_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZenSpriteKit_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A7072625608D0C00A268F7 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/iOSSupport/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -63,6 +64,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7A3089726D1C4EB0069855F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +89,7 @@
 				F70E39192482E7B9000B9F29 /* ZenApplication_iOS.framework */,
 				F70E39392482ED78000B9F29 /* ZenApplication_watchOS.framework */,
 				F70E39462482EDEF000B9F29 /* ZenApplication_tvOS.framework */,
+				F7A3089A26D1C4EB0069855F /* ZenSpriteKit_macOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +215,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7A3089526D1C4EB0069855F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -263,6 +279,24 @@
 			productReference = F70E39462482EDEF000B9F29 /* ZenApplication_tvOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F7A3089926D1C4EB0069855F /* ZenSpriteKit-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7A308A126D1C4EB0069855F /* Build configuration list for PBXNativeTarget "ZenSpriteKit-macOS" */;
+			buildPhases = (
+				F7A3089526D1C4EB0069855F /* Headers */,
+				F7A3089626D1C4EB0069855F /* Sources */,
+				F7A3089726D1C4EB0069855F /* Frameworks */,
+				F7A3089826D1C4EB0069855F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ZenSpriteKit-macOS";
+			productName = "ZenSpriteKit-macOS";
+			productReference = F7A3089A26D1C4EB0069855F /* ZenSpriteKit_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,6 +316,9 @@
 					F70E39452482EDEF000B9F29 = {
 						CreatedOnToolsVersion = 11.5;
 					};
+					F7A3089926D1C4EB0069855F = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 				};
 			};
 			buildConfigurationList = F70E39132482E7B9000B9F29 /* Build configuration list for PBXProject "ZenApplication" */;
@@ -300,6 +337,7 @@
 				F70E39182482E7B9000B9F29 /* ZenApplication-iOS */,
 				F70E39452482EDEF000B9F29 /* ZenApplication-tvOS */,
 				F70E39382482ED78000B9F29 /* ZenApplication-watchOS */,
+				F7A3089926D1C4EB0069855F /* ZenSpriteKit-macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -320,6 +358,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F70E39442482EDEF000B9F29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A3089826D1C4EB0069855F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,6 +407,13 @@
 				F70E3958248303CB000B9F29 /* ListViewModel.swift in Sources */,
 				F70E39512482EE2E000B9F29 /* GroupedListViewModel.swift in Sources */,
 				F758399B2517C50A0087D1EE /* Dispatcher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A3089626D1C4EB0069855F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +707,60 @@
 			};
 			name = Release;
 		};
+		F7A3089F26D1C4EB0069855F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7CK9FQY54K;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ZenApplication/SupportingFiles/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ZenSpriteKit-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F7A308A026D1C4EB0069855F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7CK9FQY54K;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ZenApplication/SupportingFiles/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ZenSpriteKit-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -690,6 +796,15 @@
 			buildConfigurations = (
 				F70E394C2482EDEF000B9F29 /* Debug */,
 				F70E394D2482EDEF000B9F29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7A308A126D1C4EB0069855F /* Build configuration list for PBXNativeTarget "ZenSpriteKit-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7A3089F26D1C4EB0069855F /* Debug */,
+				F7A308A026D1C4EB0069855F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -5,6 +5,7 @@ import PackageDescription
 let package = Package(
 	name: "ZenApplication",
 	platforms: [
+		.macOS(.v10_13),
 		.iOS(.v12),
 		.tvOS(.v12),
 		.watchOS(.v2)
