@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public struct GroupedListViewModel<
 	SectionModel: GroupedListSectionProtocol
@@ -11,7 +11,13 @@ public struct GroupedListViewModel<
 	}
 	
 	public subscript(indexPath: IndexPath) -> SectionModel.ItemModel? {
-		sections[safe: indexPath.section]?.items[safe: indexPath.item]
+		guard
+			let section = indexPath.first,
+			let item = indexPath.last
+		else {
+			return nil
+		}
+		return sections[safe: section]?.items[safe: item]
 	}
 	
 	// MARK: - Computed Properties
@@ -72,10 +78,7 @@ public extension GroupedListViewModel where
 			else {
 				continue
 			}
-			return IndexPath(
-				item: itemIndex,
-				section: sectionIndex
-			)
+			return [sectionIndex, itemIndex]
 		}
 		return nil
 	}
@@ -89,10 +92,7 @@ public extension GroupedListViewModel where
 			else {
 				continue
 			}
-			return IndexPath(
-				item: itemIndex,
-				section: sectionIndex
-			)
+			return [sectionIndex, itemIndex]
 		}
 		return nil
 	}
