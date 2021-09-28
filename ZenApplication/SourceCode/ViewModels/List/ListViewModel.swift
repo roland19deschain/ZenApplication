@@ -10,6 +10,10 @@ public struct ListViewModel<ItemModel> {
 	
 	// MARK: - Computed Properties
 	
+	public var isEmpty: Bool {
+		items.isEmpty
+	}
+	
 	public var count: Int {
 		items.count
 	}

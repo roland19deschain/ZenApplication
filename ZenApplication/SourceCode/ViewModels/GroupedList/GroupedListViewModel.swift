@@ -22,6 +22,10 @@ public struct GroupedListViewModel<
 	
 	// MARK: - Computed Properties
 	
+	public var isEmpty: Bool {
+		sections.isEmpty
+	}
+	
 	public var sectionsCount: Int {
 		sections.count
 	}
