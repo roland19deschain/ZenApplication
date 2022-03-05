@@ -10,11 +10,11 @@ public struct Dispatcher {
 	// MARK: - Dispatch
 	
 	/**
-	Executes a block of code, associated with a unique token, only once. The code is thread safe and will
-	only execute the code once even in the presence of multithreaded calls.
-	- parameter token: A unique reverse DNS style name or a GUID
-	- parameter block: Block to execute once
-	*/
+	 Executes a block of code, associated with a unique token, only once. The code is thread safe and will
+	 only execute the code once even in the presence of multithreaded calls.
+	 - parameter token: A unique reverse DNS style name or a GUID
+	 - parameter block: Block to execute once
+	 */
 	public static func executeOnce(
 		token: String,
 		block: () -> Void
@@ -24,7 +24,6 @@ public struct Dispatcher {
 		defer {
 			dispatchSemaphore.signal()
 		}
-		
 		guard !onceTokens.contains(token) else {
 			return
 		}

@@ -1,4 +1,5 @@
 import Foundation
+import ZenSwift
 
 public struct GroupedListViewModel<
 	SectionModel: GroupedListSectionProtocol
@@ -58,8 +59,8 @@ public struct GroupedListViewModel<
 // MARK: - Introspection
 
 public extension GroupedListViewModel where
-	SectionModel: Equatable,
-	SectionModel.ItemModel: Equatable {
+SectionModel: Equatable,
+SectionModel.ItemModel: Equatable {
 	
 	func index(
 		of sectionModel: SectionModel

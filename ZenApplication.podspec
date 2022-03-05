@@ -1,19 +1,20 @@
-Pod::Spec.new do |s|
-  s.name             = 'ZenApplication'
-  s.version          = '1.3.1'
-  s.swift_version    = '5.0'
-  s.summary          = 'Tools and architecture components for building mobile applications written in Swift.'
-  s.description      = <<-DESC
+Pod::Spec.new do |spec|
+  spec.name             = 'ZenApplication'
+  spec.version          = '2.0.0'
+  spec.swift_version    = '5.0'
+  spec.summary          = 'Tools and architecture components for building mobile applications written in Swift.'
+  spec.description      = <<-DESC
 ZenApplication represents tools and architecture components for building mobile applications written in Swift.
                        DESC
-  s.homepage         = 'https://github.com/roland19deschain/ZenApplication'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Alexey Roik' => 'roland19deschain@gmail.com' }
-  s.source           = { :git => 'https://github.com/roland19deschain/ZenApplication.git', :tag => s.version }
-  s.requires_arc     = true
-  s.ios.deployment_target = '12.0'
-  s.tvos.deployment_target = '12.0'
-  s.osx.deployment_target = '10.13'
-  s.watchos.deployment_target = '2.0'
-  s.source_files     = 'ZenApplication/**/*{swift}'
+  spec.homepage         = 'https://github.com/roland19deschain/ZenApplication'
+  spec.license          = { :type => 'MIT', :file => 'LICENSE' }
+  spec.author           = { 'Alexey Roik' => 'roland19deschain@gmail.com' }
+  spec.source           = { :git => 'https://github.com/roland19deschain/ZenApplication.git', :tag => spec.version }
+  spec.requires_arc     = true
+  spec.ios.deployment_target = '12.0'
+  spec.tvos.deployment_target = '12.0'
+  spec.osx.deployment_target = '10.13'
+  spec.watchos.deployment_target = '2.0'
+  spec.source_files     = 'Sources/**/*{swift}'
+  spec.dependency 'ZenSwift'
 end

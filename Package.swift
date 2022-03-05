@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 
 import PackageDescription
 
@@ -15,14 +15,24 @@ let package = Package(
 			name: "ZenApplication",
 			type: .static,
 			targets: ["ZenApplication"]
-		)
+		),
 	],
-	dependencies: [],
+	dependencies: [
+		.package(url: "https://github.com/roland19deschain/ZenSwift.git", from: "2.1.0")
+	],
 	targets: [
 		.target(
 			name: "ZenApplication",
-			dependencies: [],
-			path: "ZenApplication/SourceCode/"
+			dependencies: [
+				.product(name: "ZenSwift", package: "zenswift")
+			],
+			path: "Sources/"
+		)
+		,
+		.testTarget(
+			name: "ZenApplicationTests",
+			dependencies: ["ZenApplication"],
+			path: "Tests/"
 		)
 	],
 	swiftLanguageVersions: [.v5]
