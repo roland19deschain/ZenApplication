@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'ZenApplication'
-  spec.version          = '2.0.1'
+  spec.version          = '2.1.0'
   spec.swift_version    = '5.0'
   spec.summary          = 'Tools and architecture components for building mobile applications written in Swift.'
   spec.description      = <<-DESC
