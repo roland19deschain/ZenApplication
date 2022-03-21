@@ -1,15 +1,16 @@
 import Foundation
 
 public enum ApplicationError: Error {
-	case invalidURL(String)
-	case clientVersionIsDeprecated
 	case operationCanceled
 	case mappingFailure
+	case objectNotFound
 	case incorrectData
-	case gameCenterUnavailable
+	case prohibitedByUser
 	case networkUnavailable
+	case gameCenterUnavailable
+	case invalidURL(String)
+	case clientVersionIsDeprecated
 	case deviceCannotSendEmail
 	case missingPrivacyPolicy
 	case missingPermissions
-	case prohibitedByUser
 }
