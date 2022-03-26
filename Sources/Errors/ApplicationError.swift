@@ -7,7 +7,6 @@ public enum ApplicationError: Error {
 	case incorrectData
 	case prohibitedByUser
 	case networkUnavailable
-	case gameCenterUnavailable
 	case clientVersionIsDeprecated
 	case deviceCannotSendEmail
 	case missingPrivacyPolicy
@@ -27,7 +26,6 @@ extension ApplicationError: Equatable {
 			(.incorrectData, .incorrectData),
 			(.prohibitedByUser, .prohibitedByUser),
 			(.networkUnavailable, .networkUnavailable),
-			(.gameCenterUnavailable, .gameCenterUnavailable),
 			(.clientVersionIsDeprecated, .clientVersionIsDeprecated),
 			(.deviceCannotSendEmail, .deviceCannotSendEmail),
 			(.missingPrivacyPolicy, .missingPrivacyPolicy),
