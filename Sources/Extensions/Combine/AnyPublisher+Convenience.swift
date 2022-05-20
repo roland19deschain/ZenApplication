@@ -8,5 +8,11 @@ public extension AnyPublisher where Failure == Error {
 		).eraseToAnyPublisher()
 	}
 	
+	static var justVoid: AnyPublisher<Void, Error> {
+		Just(()).setFailureType(
+			to: Error.self
+		).eraseToAnyPublisher()
+	}
+	
 }
 
