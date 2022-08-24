@@ -48,7 +48,7 @@ public struct GroupedListViewModel<
 	}
 	
 	public init(
-		primaryModel: Self,mapper
+		primaryModel: Self,
 		builder: ([SectionModel]) -> [SectionModel]
 	) {
 		self.sections = builder(primaryModel.sections)
@@ -100,6 +100,29 @@ SectionModel.ItemModel: Equatable {
 			return [sectionIndex, itemIndex]
 		}
 		return nil
+	}
+	
+}
+
+// MARK: - Sequence
+
+extension GroupedListViewModel: Sequence {
+	
+	public func makeIterator() -> AnyIterator<SectionModel> {
+		var iterator = sections.makeIterator()
+		return AnyIterator {
+			iterator.next()
+		}
+	}
+	
+}
+
+// MARK: - ExpressibleByArrayLiteral
+
+extension GroupedListViewModel: ExpressibleByArrayLiteral {
+	
+	public init(arrayLiteral elements: SectionModel...) {
+		self.init(sections: elements)
 	}
 	
 }

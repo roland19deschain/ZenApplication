@@ -52,6 +52,29 @@ public extension ListViewModel {
 	
 }
 
+// MARK: - Sequence
+
+extension ListViewModel: Sequence {
+	
+	public func makeIterator() -> AnyIterator<ItemModel> {
+		var iterator = items.makeIterator()
+		return AnyIterator {
+			iterator.next()
+		}
+	}
+	
+}
+
+// MARK: - ExpressibleByArrayLiteral
+
+extension ListViewModel: ExpressibleByArrayLiteral {
+	
+	public init(arrayLiteral elements: ItemModel...) {
+		self.init(items: elements)
+	}
+	
+}
+
 // MARK: - Convenience
 
 public extension ListViewModel {

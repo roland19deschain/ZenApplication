@@ -2,14 +2,13 @@ import Foundation
 
 public enum ApplicationError: Error {
 	case operationCanceled
+	case operationImpossible
 	case mappingFailure
 	case objectNotFound
 	case incorrectData
 	case prohibitedByUser
 	case networkUnavailable
 	case clientVersionIsDeprecated
-	case deviceCannotSendEmail
-	case missingPrivacyPolicy
 	case missingPermissions
 	case invalidURL(String)
 }
@@ -21,14 +20,13 @@ extension ApplicationError: Equatable {
 	public static func ==(lhs: Self, rhs: Self) -> Bool {
 		switch (lhs, rhs) {
 		case (.operationCanceled, .operationCanceled),
+			(.operationImpossible, .operationImpossible),
 			(.mappingFailure, .mappingFailure),
 			(.objectNotFound, .objectNotFound),
 			(.incorrectData, .incorrectData),
 			(.prohibitedByUser, .prohibitedByUser),
 			(.networkUnavailable, .networkUnavailable),
 			(.clientVersionIsDeprecated, .clientVersionIsDeprecated),
-			(.deviceCannotSendEmail, .deviceCannotSendEmail),
-			(.missingPrivacyPolicy, .missingPrivacyPolicy),
 			(.missingPermissions, .missingPermissions):
 			return true
 		case let (.invalidURL(lhsUrl), .invalidURL(rhsUrl)):
