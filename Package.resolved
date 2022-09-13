@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ZenSwift",
+        "repositoryURL": "https://github.com/roland19deschain/ZenSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "f529389369bfa695cc5845a0ee443c60bceab984",
+          "version": "2.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
