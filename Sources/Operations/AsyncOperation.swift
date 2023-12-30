@@ -42,6 +42,7 @@ open class AsyncOperation<Value, Progress>: Operation {
 	// MARK: - Stored Properties - Queues
 
 	private let stateQueue: DispatchQueue
+	private let responceQueue: DispatchQueue
 	public let workQueue: DispatchQueue
 
 	// MARK: - Stored Properties - Closures
@@ -52,6 +53,7 @@ open class AsyncOperation<Value, Progress>: Operation {
 	// MARK: - Life Cycle
 
 	public init(
+		responceQueue: DispatchQueue = .main,
 		progressHandler: ((Progress) -> Void)? = nil,
 		completionHandler: @escaping (Result<Value, Error>) -> Void
 	) {
@@ -61,6 +63,7 @@ open class AsyncOperation<Value, Progress>: Operation {
 			attributes: .concurrent
 		)
 		self.workQueue = DispatchQueue(label: description + "WorkQueue")
+		self.responceQueue = responceQueue
 
 		self.progressHandler = progressHandler
 		self.completionHandler = completionHandler
@@ -108,7 +111,9 @@ open class AsyncOperation<Value, Progress>: Operation {
 public extension AsyncOperation {
 
 	func notify(progress: Progress) {
-		progressHandler?(progress)
+		responceQueue.async {
+			self.progressHandler?(progress)
+		}
 	}
 
 	func finish(_ value: Value) {
@@ -117,7 +122,9 @@ public extension AsyncOperation {
 		}
 		state = .finished
 
-		completionHandler(.success(value))
+		responceQueue.async {
+			self.completionHandler(.success(value))
+		}
 	}
 
 	func finish(_ error: Error) {
@@ -126,7 +133,9 @@ public extension AsyncOperation {
 		}
 		state = .finished
 
-		completionHandler(.failure(error))
+		responceQueue.async {
+			self.completionHandler(.failure(error))
+		}
 	}
 
 }
