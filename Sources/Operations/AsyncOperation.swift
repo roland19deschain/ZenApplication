@@ -2,7 +2,6 @@ import Foundation
 
 /// Subclass of `Operation` created as a base class for asynchronous operations.
 /// - Override `main()` to implement the work logic.
-/// - Use the `workQueue` field to handle responses.
 /// - Call `notify(progress: Progress)` when part of the work is done.
 /// - Call `finish(_ value: Value)` or `finish(_ error: Error)` when async work is finished or cancelled.
 open class AsyncOperation<Value, Progress>: Operation {
@@ -43,7 +42,6 @@ open class AsyncOperation<Value, Progress>: Operation {
 
 	private let stateQueue: DispatchQueue
 	private let responceQueue: DispatchQueue
-	public let workQueue: DispatchQueue
 
 	// MARK: - Stored Properties - Closures
 
@@ -62,7 +60,6 @@ open class AsyncOperation<Value, Progress>: Operation {
 			label: description + "StateQueue",
 			attributes: .concurrent
 		)
-		self.workQueue = DispatchQueue(label: description + "WorkQueue")
 		self.responceQueue = responceQueue
 
 		self.progressHandler = progressHandler
