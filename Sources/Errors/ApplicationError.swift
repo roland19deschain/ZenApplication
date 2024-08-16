@@ -5,6 +5,7 @@ public enum ApplicationError: Error {
 	case operationImpossible
 	case mappingFailure
 	case objectNotFound
+	case objectAlreadyExist
 	case incorrectData
 	case prohibitedByUser
 	case networkUnavailable
@@ -23,6 +24,7 @@ extension ApplicationError: Equatable {
 			(.operationImpossible, .operationImpossible),
 			(.mappingFailure, .mappingFailure),
 			(.objectNotFound, .objectNotFound),
+			(.objectAlreadyExist, .objectAlreadyExist),
 			(.incorrectData, .incorrectData),
 			(.prohibitedByUser, .prohibitedByUser),
 			(.networkUnavailable, .networkUnavailable),
