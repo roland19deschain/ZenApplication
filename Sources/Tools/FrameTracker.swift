@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-public final class FrameTracker {
+@MainActor public final class FrameTracker {
 	
 	// MARK: - Computed Properties
 	

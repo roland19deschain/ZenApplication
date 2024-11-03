@@ -5,8 +5,8 @@ public struct Dispatcher {
 	
 	// MARK: - Stored Properties
 	
-	private static var objects: [Weak<AnyObject>] = []
-	private static var tokens: [String] = []
+	nonisolated(unsafe) private static var objects: [Weak<AnyObject>] = []
+	nonisolated(unsafe) private static var tokens: [String] = []
 	private static let dispatchSemaphore = DispatchSemaphore(value: 1)
 	
 	// MARK: - Dispatch

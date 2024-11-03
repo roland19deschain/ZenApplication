@@ -1,6 +1,6 @@
 import Combine
 
-public extension AnyPublisher where Failure == Error {
+public extension AnyPublisher where Failure == ApplicationError {
 	
 	init(error: ApplicationError) {
 		self.init(
