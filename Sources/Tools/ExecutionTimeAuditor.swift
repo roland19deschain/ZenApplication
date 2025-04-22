@@ -18,7 +18,7 @@ public extension ExecutionTimeAuditor {
 		of closure: () -> Void
 	) -> TimeInterval
 	{
-		var average = 0.0
+		var average: Double = 0.0
 		for _ in 0..<iterations {
 			average += evaluate(
 				closure,

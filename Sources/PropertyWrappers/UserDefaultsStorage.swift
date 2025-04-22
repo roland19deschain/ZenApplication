@@ -24,14 +24,23 @@ import ZenSwift
 	private let defaultValue: T
 	private let subject = PassthroughSubject<T, Never>()
 	private var storage: UserDefaults = .standard
+	private let dispatchSemaphore = DispatchSemaphore(value: 1)
 	
 	// MARK: - Stored Properties / Wrapped Value
 	
 	public var wrappedValue: T {
 		get {
-			storage.object(forKey: key) as? T ?? defaultValue
+			dispatchSemaphore.wait()
+			defer {
+				dispatchSemaphore.signal()
+			}
+			return storage.object(forKey: key) as? T ?? defaultValue
 		}
 		set {
+			dispatchSemaphore.wait()
+			defer {
+				dispatchSemaphore.signal()
+			}
 			if let optional = newValue as? AnyOptional, optional.isNil {
 				storage.removeObject(forKey: key)
 			} else {

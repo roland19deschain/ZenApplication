@@ -4,7 +4,7 @@ import Foundation
 /// - Override `main()` to implement the work logic.
 /// - Call `notify(progress: Progress)` when part of the work is done.
 /// - Call `finish(_ value: Value)` or `finish(_ error: Error)` when async work is finished or cancelled.
-open class AsyncOperation<Value, Progress>: Operation {
+open class AsyncOperation<Value, Progress>: Operation, @unchecked Sendable {
 
 	// MARK: - Nested Types
 
