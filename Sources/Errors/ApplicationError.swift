@@ -1,6 +1,7 @@
 import Foundation
 
 public enum ApplicationError: Error {
+	case earlyDeallocation
 	case operationCanceled
 	case operationImpossible
 	case mappingFailure
@@ -20,7 +21,8 @@ extension ApplicationError: Equatable {
 	
 	public static func ==(lhs: Self, rhs: Self) -> Bool {
 		switch (lhs, rhs) {
-		case (.operationCanceled, .operationCanceled),
+		case (.earlyDeallocation, .earlyDeallocation),
+			(.operationCanceled, .operationCanceled),
 			(.operationImpossible, .operationImpossible),
 			(.mappingFailure, .mappingFailure),
 			(.objectNotFound, .objectNotFound),
@@ -30,11 +32,11 @@ extension ApplicationError: Equatable {
 			(.networkUnavailable, .networkUnavailable),
 			(.clientVersionIsDeprecated, .clientVersionIsDeprecated),
 			(.missingPermissions, .missingPermissions):
-			return true
+			true
 		case let (.invalidURL(lhsUrl), .invalidURL(rhsUrl)):
-			return lhsUrl == rhsUrl
+			lhsUrl == rhsUrl
 		default:
-			return false
+			false
 		}
 	}
 	
