@@ -4,7 +4,7 @@ public enum ApplicationError: Error {
 	case earlyDeallocation
 	case operationCanceled
 	case operationImpossible
-	case mappingFailure
+	case mappingFailure(String)
 	case objectNotFound
 	case objectAlreadyExist
 	case incorrectData
@@ -24,7 +24,6 @@ extension ApplicationError: Equatable {
 		case (.earlyDeallocation, .earlyDeallocation),
 			(.operationCanceled, .operationCanceled),
 			(.operationImpossible, .operationImpossible),
-			(.mappingFailure, .mappingFailure),
 			(.objectNotFound, .objectNotFound),
 			(.objectAlreadyExist, .objectAlreadyExist),
 			(.incorrectData, .incorrectData),
@@ -35,6 +34,8 @@ extension ApplicationError: Equatable {
 			true
 		case let (.invalidURL(lhsUrl), .invalidURL(rhsUrl)):
 			lhsUrl == rhsUrl
+		case let (.mappingFailure(lhsKeyPath), .mappingFailure(rhsKeyPath)):
+			lhsKeyPath == rhsKeyPath
 		default:
 			false
 		}
