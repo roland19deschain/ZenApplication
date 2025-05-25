@@ -22,7 +22,7 @@ import ZenSwift
 	
 	private let key: String
 	private let defaultValue: T
-	private let subject = PassthroughSubject<T, Never>()
+	private let subject: CurrentValueSubject<T, Never>
 	private var storage: UserDefaults = .standard
 	private let dispatchSemaphore = DispatchSemaphore(value: 1)
 	
@@ -54,6 +54,7 @@ import ZenSwift
 	
 	public init(wrappedValue: T, key: String) {
 		self.defaultValue = wrappedValue
+		self.subject = CurrentValueSubject(wrappedValue)
 		self.key = key
 	}
 	
