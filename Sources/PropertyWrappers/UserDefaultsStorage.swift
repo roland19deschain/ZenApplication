@@ -54,8 +54,10 @@ import ZenSwift
 	
 	public init(wrappedValue: T, key: String) {
 		self.defaultValue = wrappedValue
-		self.subject = CurrentValueSubject(wrappedValue)
 		self.key = key
+		self.subject = CurrentValueSubject(
+			storage.object(forKey: key) as? T ?? wrappedValue
+		)
 	}
 	
 }
