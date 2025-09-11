@@ -6,8 +6,8 @@ let package = Package(
 	name: "ZenApplication",
 	platforms: [
 		.macOS(.v10_15),
-		.iOS(.v14),
-		.tvOS(.v14),
+		.iOS(.v15),
+		.tvOS(.v15),
 		.watchOS(.v6)
 	],
 	products: [
