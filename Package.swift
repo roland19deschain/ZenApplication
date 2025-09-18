@@ -18,7 +18,7 @@ let package = Package(
 		),
 	],
 	dependencies: [
-		.package(url: "https://github.com/roland19deschain/ZenSwift.git", from: "2.1.0")
+		.package(url: "https://github.com/roland19deschain/ZenSwift.git", from: "2.1.15")
 	],
 	targets: [
 		.target(

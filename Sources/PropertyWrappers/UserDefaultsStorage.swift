@@ -38,14 +38,12 @@ import ZenSwift
 		}
 		set {
 			dispatchSemaphore.wait()
-			defer {
-				dispatchSemaphore.signal()
-			}
 			if let optional = newValue as? AnyOptional, optional.isNil {
 				storage.removeObject(forKey: key)
 			} else {
 				storage.set(newValue, forKey: key)
 			}
+			dispatchSemaphore.signal()
 			subject.send(newValue)
 		}
 	}
