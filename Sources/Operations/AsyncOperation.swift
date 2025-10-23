@@ -86,18 +86,15 @@ open class AsyncOperation<Value, Progress>: Operation, @unchecked Sendable {
 
 	open override func start() {
 		state = .executing
-
 		guard !isCancelled else {
 			finish(ApplicationError.operationCanceled)
 			return
 		}
-
 		main()
 	}
 
 	open override func cancel() {
 		super.cancel()
-
 		finish(ApplicationError.operationCanceled)
 	}
 
@@ -118,7 +115,6 @@ public extension AsyncOperation {
 			return
 		}
 		state = .finished
-
 		responceQueue.async {
 			self.completionHandler(.success(value))
 		}
@@ -129,7 +125,6 @@ public extension AsyncOperation {
 			return
 		}
 		state = .finished
-
 		responceQueue.async {
 			self.completionHandler(.failure(error))
 		}
