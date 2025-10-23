@@ -7,7 +7,11 @@ import ZenSwift
 	// MARK: - Computed Properties / Convenience
 	
 	public var isDefault: Bool {
-		storage.object(forKey: key) == nil
+		recursiveLock.lock()
+		defer {
+			recursiveLock.unlock()
+		}
+		return storage.object(forKey: key) == nil
 	}
 	
 	public var publisher: AnyPublisher<T, Never> {
@@ -24,26 +28,26 @@ import ZenSwift
 	private let defaultValue: T
 	private let subject: CurrentValueSubject<T, Never>
 	private var storage: UserDefaults = .standard
-	private let dispatchSemaphore = DispatchSemaphore(value: 1)
+	private let recursiveLock = NSRecursiveLock()
 	
 	// MARK: - Stored Properties / Wrapped Value
 	
 	public var wrappedValue: T {
 		get {
-			dispatchSemaphore.wait()
+			recursiveLock.lock()
 			defer {
-				dispatchSemaphore.signal()
+				recursiveLock.unlock()
 			}
 			return storage.object(forKey: key) as? T ?? defaultValue
 		}
 		set {
-			dispatchSemaphore.wait()
+			recursiveLock.lock()
 			if let optional = newValue as? AnyOptional, optional.isNil {
 				storage.removeObject(forKey: key)
 			} else {
 				storage.set(newValue, forKey: key)
 			}
-			dispatchSemaphore.signal()
+			recursiveLock.unlock()
 			subject.send(newValue)
 		}
 	}
