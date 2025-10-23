@@ -27,7 +27,7 @@ import ZenSwift
 	private let key: String
 	private let defaultValue: T
 	private let subject: CurrentValueSubject<T, Never>
-	private var storage: UserDefaults = .standard
+	private let storage: UserDefaults
 	private let recursiveLock = NSRecursiveLock()
 	
 	// MARK: - Stored Properties / Wrapped Value
@@ -57,6 +57,8 @@ import ZenSwift
 	public init(wrappedValue: T, key: String) {
 		self.defaultValue = wrappedValue
 		self.key = key
+		let storage = UserDefaults.standard
+		self.storage = storage
 		self.subject = CurrentValueSubject(
 			storage.object(forKey: key) as? T ?? wrappedValue
 		)
