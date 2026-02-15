@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FriendlyNumberFormatter {
+public struct FriendlyNumberFormatter: Sendable {
 	
 	// MARK: - Stored Properties / Values
 	

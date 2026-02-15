@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ApplicationError: Error {
+public enum ApplicationError: Sendable, Error {
 	case earlyDeallocation
 	case operationCanceled
 	case operationImpossible
