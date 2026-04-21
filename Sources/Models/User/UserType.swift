@@ -1,6 +1,6 @@
 import Foundation
 
-public enum UserType: String, CaseIterable, Sendable, Equatable {
+public enum UserType: String, CaseIterable, Sendable, Equatable, Hashable {
 	case regular
 	case subscriber
 	case premium
