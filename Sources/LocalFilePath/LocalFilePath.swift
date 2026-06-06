@@ -116,6 +116,29 @@ public extension LocalFilePath {
 
 public extension LocalFilePath {
 	
+	var isEmpty: Bool {
+		relativePath.isEmpty
+	}
+	
+	var fileExists: Bool {
+		get async {
+			await Task.detached(priority: .utility) {
+				guard !self.isEmpty else {
+					return false
+				}
+				guard let url = try? self.url else {
+					return false
+				}
+				var isDirectory: ObjCBool = false
+				let exists = FileManager.default.fileExists(
+					atPath: url.path,
+					isDirectory: &isDirectory
+				)
+				return exists && !isDirectory.boolValue
+			}.value
+		}
+	}
+	
 	static var empty: Self {
 		LocalFilePath(
 			root: .documents,
