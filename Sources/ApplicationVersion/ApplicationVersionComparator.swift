@@ -5,19 +5,7 @@ import Foundation
 /// Use this comparator for versions such as `"1.2.3"` where each component is
 /// ordered numerically instead of lexicographically. Missing components are
 /// treated as zero, so `"1.2"` and `"1.2.0"` are equal.
-public struct ApplicationVersionComparator: Sendable {
-	
-	// MARK: - Nested Types
-	
-	/// The ordering relationship between two application version strings.
-	public enum ComparisonResult: Sendable, Equatable {
-		/// The left-hand version is lower than the right-hand version.
-		case orderedAscending
-		/// Both versions have the same numeric value.
-		case orderedSame
-		/// The left-hand version is greater than the right-hand version.
-		case orderedDescending
-	}
+public struct ApplicationVersionComparator: Sendable, Equatable, Hashable {
 	
 	// MARK: - Life Cycle
 	
@@ -69,62 +57,83 @@ public struct ApplicationVersionComparator: Sendable {
 	
 }
 
-// MARK: - Convenience
+// MARK: - Nested Types / ComparisonResult
 
-private struct VersionComponent: Comparable {
-
-	// MARK: - Static Properties
-
-	static let zero = VersionComponent(normalizedNumericPrefix: "0")
-
-	// MARK: - Stored Properties
-
-	private let normalizedNumericPrefix: String
-
-	// MARK: - Life Cycle
-
-	init(_ rawComponent: Substring) {
-		let numericPrefix = rawComponent.prefix {
-			$0.isASCIIDigit
-		}
-		let normalizedNumericPrefix = numericPrefix.drop {
-			$0 == "0"
-		}
-		self.normalizedNumericPrefix = normalizedNumericPrefix.isEmpty
-		? Self.zero.normalizedNumericPrefix
-		: String(normalizedNumericPrefix)
+extension ApplicationVersionComparator {
+	
+	/// The ordering relationship between two application version strings.
+	public enum ComparisonResult: Sendable, Equatable {
+		/// The left-hand version is lower than the right-hand version.
+		case orderedAscending
+		/// Both versions have the same numeric value.
+		case orderedSame
+		/// The left-hand version is greater than the right-hand version.
+		case orderedDescending
 	}
+	
+}
 
-	private init(normalizedNumericPrefix: String) {
-		self.normalizedNumericPrefix = normalizedNumericPrefix
+// MARK: - Nested Types / VersionComponent
+
+private extension ApplicationVersionComparator {
+	
+	struct VersionComponent {
+		static var zero: VersionComponent {
+			VersionComponent(normalizedNumericPrefix: "0")
+		}
+		private let normalizedNumericPrefix: String
+
+		init(_ rawComponent: Substring) {
+			let numericPrefix = rawComponent.prefix {
+				$0.isASCIIDigit
+			}
+			let normalizedNumericPrefix = numericPrefix.drop {
+				$0 == "0"
+			}
+			self.normalizedNumericPrefix = normalizedNumericPrefix.isEmpty
+			? "0"
+			: String(normalizedNumericPrefix)
+		}
+		
+		private init(normalizedNumericPrefix: String) {
+			self.normalizedNumericPrefix = normalizedNumericPrefix
+		}
 	}
+	
+}
 
-	// MARK: - Comparable
+// MARK: - Nested Types / VersionComponent / Comparable
 
+extension ApplicationVersionComparator.VersionComponent: Comparable {
+	
 	static func < (
-		lhs: VersionComponent,
-		rhs: VersionComponent
+		lhs: Self,
+		rhs: Self
 	) -> Bool {
 		guard lhs.normalizedNumericPrefix.count == rhs.normalizedNumericPrefix.count else {
 			return lhs.normalizedNumericPrefix.count < rhs.normalizedNumericPrefix.count
 		}
 		return lhs.normalizedNumericPrefix < rhs.normalizedNumericPrefix
 	}
-
+	
 }
+
+// MARK: - Convenience / String
 
 private extension String {
 
-	var versionComponents: [VersionComponent] {
+	var versionComponents: [ApplicationVersionComparator.VersionComponent] {
 		split(
 			separator: ".",
 			omittingEmptySubsequences: false
 		).map {
-			VersionComponent($0)
+			ApplicationVersionComparator.VersionComponent($0)
 		}
 	}
 
 }
+
+// MARK: - Convenience / Character
 
 private extension Character {
 
