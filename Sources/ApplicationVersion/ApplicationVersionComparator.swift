@@ -1,6 +1,6 @@
 import Foundation
 
-public struct lhsVersionComparator {
+public struct ApplicationVersionComparator {
 	
 	// MARK: - Nested Types
 	
